@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/03/24 15:52:35 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/03/28 16:23:16 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@
 # include <stdio.h>
 
 // structs go here
-
+typedef	struct s_stack
+{
+	t_list	*a;
+	t_list	*b;
+	int		size_a;
+	int		size_b;
+}	t_stack;
 
 
 
