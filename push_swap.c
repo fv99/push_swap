@@ -19,54 +19,103 @@ int	you_fucked_up(char *msg)
 	exit(1);
 }
 
-t_list	*initialize_list(int argc, char **argv)
+// list functions
+t_stack	*new_stack(int val)
 {
-	t_list	*lst;
-	t_list	*tmp;
-	int		i;
-	int		num;
+	t_stack	*stack;
 
-	i = 1;
-	lst = NULL;
-	while (i < argc)
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->num = val;
+	stack->index = -1;
+	stack->next = NULL;
+	return(stack);
+}
+
+t_stack	*stack_last(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	tmp = stack;
+	while (tmp->next)
 	{
-		num = ft_atoi(argv[i]);
-		if (num > INT_MAX || num < INT_MIN)
-			you_fucked_up("Integer read failure");
-		tmp = ft_lstnew((void *)(intptr_t)num);
-		if (tmp == NULL)
-			you_fucked_up("Failed to allocate list");
-		ft_lstadd_back(&lst, tmp);
-		i++;
+		tmp = tmp->next;
+		if (tmp->next == NULL)
+			return (tmp);
 	}
-	return (lst);
+	return (tmp);
 }
 
 
-void	test_list_read(t_list *lst)
+void	stackadd_back(t_stack **stack, t_stack *new)
 {
-	t_list	*buf;
+	t_stack	*tmp;
 
-	buf = lst;
-	while (buf != NULL)
+	if (!*stack)
+		*stack = new;
+	else
 	{
-		ft_printf("%s ", (char *) buf->content);
-		buf = buf->next;
+		tmp = stack_last(*stack);
+		tmp->next = new;
+		new->next = NULL;
 	}
-	ft_printf("\n");
+}
+
+
+
+void	initialize_list(t_stack **lst, int argc, char **argv)
+{
+	t_stack	*tmp;
+	char	**args;
+	int		i;
+
+	i = 0;
+	if (argc == 2)
+		args = ft_split(argv[1], ' ');
+	else
+	{
+		i = 1;
+		args = argv;
+		tmp = new_stack(ft_atoi(args[i]));
+		stackadd_back(lst, tmp);
+		i++;
+	}
+}
+
+
+void	test_stack_read(t_stack **a)
+{
+    t_stack *buf;
+
+    if (a == NULL || *a == NULL)
+    {
+        return;
+    }
+
+    buf = *a;
+    while (buf != NULL)
+    {
+        ft_printf("%d ", buf->num);
+        buf = buf->next;
+    }
+    ft_printf("\n");
 }
 
 int	main(int argc, char **argv)
 {
-	t_list	*stack;
+	t_stack	**a;
+	t_stack	**b;
 
-	ft_printf("Hello world! %s", argv[1]);
 	if (argc < 2)
 		you_fucked_up("Invalid number of arguments");
 	else
 	{
-		stack = initialize_list(argc, argv);
-		test_list_read(stack);
+		a = (t_stack **)malloc(sizeof(t_stack));
+		b = (t_stack **)malloc(sizeof(t_stack));
+		initialize_list(a ,argc, argv);
+		test_stack_read(a);
+		test_stack_read(b);
 
 	}
 	return (0);

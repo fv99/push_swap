@@ -20,14 +20,10 @@
 // structs go here
 typedef	struct s_stack
 {
-	t_list	*a;
-	t_list	*b;
-	int		size_a;
-	int		size_b;
+	int				num;
+	int				index;
+	struct s_stack	*next;
 }	t_stack;
-
-
-
 
 // push_swap.c
 
