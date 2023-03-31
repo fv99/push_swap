@@ -6,14 +6,14 @@
 #    By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 15:47:13 by fvonsovs          #+#    #+#              #
-#    Updated: 2023/03/29 16:37:24 by fvonsovs         ###   ########.fr        #
+#    Updated: 2023/03/31 16:43:21 by fvonsovs         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
 NAME		=	push_swap
-SRCS		=	push_swap.c list_utils.c
+SRCS		=	push_swap.c list_utils.c operations_1.c test_functions.c
 OBJS		=	${SRCS:.c=.o}
 LIBC		=	ar -cvq
 RM			=	rm -f

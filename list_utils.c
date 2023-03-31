@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:37:13 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/03/29 16:57:36 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:10:07 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,17 @@ void	stackadd_back(t_stack **stack, t_stack *new)
 		(*stack)->next = NULL;
 	}
 }
+
+void	stackadd_front(t_stack **lst, t_stack *new)
+{
+	if (lst)
+	{
+		if (*lst)
+			new->next = *lst;
+		*lst = new;
+	}
+}
+
 
 // will free array of strings created by ft_split
 void	free_split(char **str)

@@ -6,15 +6,16 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:33:07 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/03/30 13:51:11 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:59:07 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sa_sb(t_list **stack, int mode)
+// swap the first 2 elements at the top of stack
+int	sa_sb(t_stack **stack, int mode)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return(1);
@@ -29,9 +30,10 @@ int	sa_sb(t_list **stack, int mode)
 	return (0);
 }
 
-int	ss(t_list **stack_a, t_list **stack_b)
+// sa and sb at the same time
+int	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!stack_a || !*stack_a || !(*stack_a)->next \
 		|| !stack_b || !*stack_b || !(*stack_b)->next)
@@ -48,9 +50,11 @@ int	ss(t_list **stack_a, t_list **stack_b)
 	return (0);
 }
 
-int	pa_pb(t_list **stack_a, t_list **stack_b, int mode)
+// mode 1 = first element at the top of b and put it at the top of a
+// mode 0 = first element at the top of a and put it at the top of b.
+int	pa_pb(t_stack **stack_a, t_stack **stack_b, int mode)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!stack_a || !stack_b || !*stack_b || !*stack_a)
 		return(1);	
@@ -59,7 +63,7 @@ int	pa_pb(t_list **stack_a, t_list **stack_b, int mode)
 		temp = *stack_b;
 		*stack_b = (*stack_b)->next;
 		temp->next = NULL;
-		ft_lstadd_front(stack_a, temp);
+		stackadd_front(stack_a, temp);
 		return(ft_printf("pa\n"));
 	}
 	else
@@ -67,7 +71,7 @@ int	pa_pb(t_list **stack_a, t_list **stack_b, int mode)
 		temp = *stack_a;
 		*stack_a = (*stack_a)->next;
 		temp->next = NULL;
-		ft_lstadd_front(stack_b, temp);
+		stackadd_front(stack_b, temp);
 		return(ft_printf("pb\n"));
 	}
 }

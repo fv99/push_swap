@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/03/30 13:31:32 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:57:35 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,39 +44,26 @@ void	initialize_list(t_stack **lst, int argc, char **argv)
 		free_split(args);
 }
 
-void	test_stack_read(t_stack **a)
-{
-    t_stack *buf;
-
-    if (a == NULL || *a == NULL)
-    {
-        return;
-    }
-    buf = *a;
-    while (buf != NULL)
-    {
-        ft_printf("%i ", buf->num);
-        buf = buf->next;
-    }
-    ft_printf("\n");
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	**a;
-	// t_stack	**b;
+	t_stack	**b;
 
 	if (argc < 2)
 		you_fucked_up("Invalid number of arguments");
 	else
 	{
 		a = (t_stack **)malloc(sizeof(t_stack));
-		// b = (t_stack **)malloc(sizeof(t_stack));
+		b = (t_stack **)malloc(sizeof(t_stack));
+		b = NULL;
 		initialize_list(a ,argc, argv);
 		test_stack_read(a);
-		// test_stack_read(b);
+		test_sa_sb(a);
+		test_pa_pb(a, b);
+		test_ss(a, b);
+		test_stack_read(b);
 		free_stack(a);
-		// free_stack(b);
+		free_stack(b);
 	}
 	return (0);
 }
