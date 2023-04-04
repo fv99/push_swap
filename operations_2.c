@@ -6,11 +6,59 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:19:34 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 15:41:38 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:49:49 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// mode 1 = shift up all elements of stack a by 1, first becomes last
+// mode 0 = shift up all elements of stack b by 1, first becomes last
+int	ra_rb(t_stack **stack_a, t_stack **stack_b, int mode)
+{
+	t_stack *temp;
+
+	if (!stack_a || !stack_b || !*stack_b || !*stack_a ||\
+		!(*stack_a)->next || !(*stack_b)->next)
+		return(1);
+	if (mode == 1)
+	{
+		temp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		temp->next = NULL;
+		stackadd_back(stack_a, temp);
+		ft_printf("ra\n");
+	}
+	else
+	{
+		temp = *stack_b;
+		*stack_b = (*stack_b)->next;
+		temp->next = NULL;
+		stackadd_back(stack_b, temp);
+		ft_printf("rb\n");
+	}
+	return (0);
+}
+
+// ra and rb at the same time
+int	rr(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *temp;
+
+	if (!stack_a || !stack_b || !*stack_b || !*stack_a ||\
+		!(*stack_a)->next || !(*stack_b)->next)
+		return(1);
+	temp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	temp->next = NULL;
+	stackadd_back(stack_a, temp);
+	temp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	temp->next = NULL;
+	stackadd_back(stack_b, temp);
+	ft_printf("rr\n");
+	return (0);
+}
 
 // finds second to last element of stack
 t_stack	*find_pre_last(t_stack *stack)

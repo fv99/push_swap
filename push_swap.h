@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 15:39:49 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:50:20 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ int		ss(t_stack **stack_a, t_stack **stack_b);
 int		pa_pb(t_stack **stack_a, t_stack **stack_b, int mode);
 
 // operations_2.c
+
+int		ra_rb(t_stack **stack_a, t_stack **stack_b, int mode);
+
+int		rr(t_stack **stack_a, t_stack **stack_b);
 
 t_stack	*find_pre_last(t_stack *stack);
 
