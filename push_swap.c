@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/03/31 15:57:35 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:35:16 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,10 @@ int	main(int argc, char **argv)
 	{
 		a = (t_stack **)malloc(sizeof(t_stack));
 		b = (t_stack **)malloc(sizeof(t_stack));
-		b = NULL;
-		initialize_list(a ,argc, argv);
-		test_stack_read(a);
-		test_sa_sb(a);
-		test_pa_pb(a, b);
-		test_ss(a, b);
-		test_stack_read(b);
+		initialize_list(a, argc, argv);
+		initialize_list(b, argc, argv);
+
+		test_my_shit(a, b);
 		free_stack(a);
 		free_stack(b);
 	}
