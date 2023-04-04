@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:19:34 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 15:37:18 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:41:38 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_stack	*find_pre_last(t_stack *stack)
 	return (stack);
 }
 
-// mode 1 = shift up all elements of stack a by 1, first becomes last
-// mode 0 = shift up all elements of stack b by 1, first becomes last
-int	ra_rb(t_stack **stack_a, t_stack **stack_b, int mode)
+// mode 1 = shift down all elements of stack a by 1, last becomes first
+// mode 0 = shift down all elements of stack b by 1, last becomes first
+int	rra_rrb(t_stack **stack_a, t_stack **stack_b, int mode)
 {
 	t_stack *temp;
 
@@ -38,7 +38,7 @@ int	ra_rb(t_stack **stack_a, t_stack **stack_b, int mode)
 		stackadd_front(stack_a, temp);
 		temp = stack_last(*stack_a);
 		temp->next = NULL;
-		ft_printf("ra\n");
+		ft_printf("rra\n");
 	}
 	else
 	{
@@ -47,13 +47,13 @@ int	ra_rb(t_stack **stack_a, t_stack **stack_b, int mode)
 		stackadd_front(stack_b, temp);
 		temp = stack_last(*stack_b);
 		temp->next = NULL;
-		ft_printf("rb\n");
+		ft_printf("rrb\n");
 	}
 	return (0);
 }
 
-// ra and rb at the same time
-int	rr(t_stack **stack_a, t_stack **stack_b)
+// rra and rrb at the same time
+int	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *temp;
 
@@ -70,6 +70,7 @@ int	rr(t_stack **stack_a, t_stack **stack_b)
 	stackadd_front(stack_b, temp);
 	temp = stack_last(*stack_b);
 	temp->next = NULL;
-	ft_printf("rr\n");
+	ft_printf("rrr\n");
 	return (0);
 }
+
