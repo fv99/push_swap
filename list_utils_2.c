@@ -1,75 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   list_utils_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 16:37:13 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/03/31 16:10:07 by fvonsovs         ###   ########.fr       */
+/*   Created: 2023/04/04 17:20:37 by fvonsovs          #+#    #+#             */
+/*   Updated: 2023/04/04 17:35:43 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// list functions
-t_stack	*new_stack(int val)
+// returns size of stack passed as parameter
+int	stack_size(t_stack *stack)
 {
-	t_stack	*stack;
+	int		i;
+	t_stack	*temp;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
+	i = 0;
+	temp = stack;
+	while (temp != NULL)
+	{
+		i++;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+// checks if list is sorted, 1 if yes 0 if no
+int	is_sorted(t_stack *stack)
+{
 	if (!stack)
-		return (NULL);
-	stack->num = val;
-	stack->index = -1;
-	stack->next = NULL;
-	return(stack);
-}
-
-t_stack	*stack_last(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	if (!stack)
-		return (NULL);
-	tmp = stack;
-	while (tmp->next)
+		you_fucked_up("is_sorted failed");
+	while(stack)
 	{
-		tmp = tmp->next;
-		if (tmp->next == NULL)
-			return (tmp);
+		if (!stack->next)
+			return(1);
+		if (stack->num > stack->next->num)
+			return(0);
+		stack = stack->next;
 	}
-	return (tmp);
+	return (1);
 }
-
-
-void	stackadd_back(t_stack **stack, t_stack *new)
-{
-	t_stack	*tmp;
-
-	if (*stack)
-	{
-		tmp = stack_last(*stack);
-		tmp->next = new;
-		new->next = NULL;
-	}
-	else
-	{
-		*stack = new;
-		(*stack)->next = NULL;
-	}
-}
-
-void	stackadd_front(t_stack **lst, t_stack *new)
-{
-	if (lst)
-	{
-		if (*lst)
-			new->next = *lst;
-		*lst = new;
-	}
-}
-
 
 // will free array of strings created by ft_split
 void	free_split(char **str)
@@ -85,6 +58,7 @@ void	free_split(char **str)
 	free(str);
 }
 
+// frees stack
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;

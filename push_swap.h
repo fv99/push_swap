@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 16:50:20 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:36:15 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		you_fucked_up(char *msg);
 
 void	initialize_list(t_stack **lst, int argc, char **argv);
 
-// list_utils.c
+// list_utils_1.c
 
 t_stack	*new_stack(int val);
 
@@ -40,6 +40,12 @@ t_stack	*stack_last(t_stack *stack);
 void	stackadd_back(t_stack **stack, t_stack *new);
 
 void	stackadd_front(t_stack **lst, t_stack *new);
+
+// list_utils_2.c
+
+int		stack_size(t_stack *stack);
+
+int		is_sorted(t_stack *stack);
 
 void	free_split(char **str);
 
@@ -64,6 +70,10 @@ t_stack	*find_pre_last(t_stack *stack);
 int		rra_rrb(t_stack **stack_a, t_stack **stack_b, int mode);
 
 int		rrr(t_stack **stack_a, t_stack **stack_b);
+
+// sort_3_5.c
+
+int		sort_three(t_stack **stack_a);
 
 // test_functions.c
 

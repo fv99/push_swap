@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 15:35:16 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:35:59 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 		b = (t_stack **)malloc(sizeof(t_stack));
 		initialize_list(a, argc, argv);
 		initialize_list(b, argc, argv);
-
+		sort_three(a);
 		test_my_shit(a, b);
 		free_stack(a);
 		free_stack(b);
