@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 17:36:15 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:12:51 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		rrr(t_stack **stack_a, t_stack **stack_b);
 
 // sort_3_5.c
 
-int		sort_three(t_stack **stack_a);
+int		sort_three(t_stack **stack_a, t_stack **stack_b);
 
 // test_functions.c
 

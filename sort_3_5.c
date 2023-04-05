@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:31:47 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 17:40:24 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:21:36 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,28 @@ Case 3:	3 1 2 > ra > 1 2 3
 Case 4:	1 3 2 > sa > 3 1 2 > ra >  1 2 3
 Case 5:	2 3 1 > rra > 1 2 3
  */
-int	sort_three(t_stack **stack_a)
+int	sort_three(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp;
 
-	while (!is_sorted(*stack_a))
+	temp = *stack_a;
+	if (stack_size(*stack_a) == 2 && temp->num > temp->next->num)
+			sa_sb(stack_a, 1);
+	if (temp->num > temp->next->num && temp->next->num < temp->next->next->num && temp->num < temp->next->next->num)
+		sa_sb(stack_a, 1);
+	else if (temp->num > temp->next->num && temp->next->num > temp->next->next->num)
 	{
-		temp = *stack_a;
-		if (stack_size(*stack_a) == 2)
-			sa_sb(stack_a, 1);
-		else if ((temp->num) < (temp->next->num)
-			&& (temp->num) > (temp->next->next->num))
-			rra_rrb(stack_a, NULL, 1);
-		else if ((temp->num) > (temp->next->num)
-			&& (temp->num) > (temp->next->next->num))
-			ra_rb(stack_a, NULL, 1);
-		else
-			sa_sb(stack_a, 1);
+		sa_sb(stack_a, 1);
+		rra_rrb(stack_a, stack_b, 1);
 	}
+	else if (temp->num > temp->next->num && temp->next->num < temp->next->next->num && temp->num > temp->next->next->num)
+		ra_rb(stack_a, stack_b, 1);
+	else if (temp->num < temp->next->num && temp->next->num > temp->next->next->num && temp->num < temp->next->next->num)
+	{
+		sa_sb(stack_a, 1);
+		ra_rb(stack_a, stack_b, 1);
+	}
+	else if (temp->num < temp->next->num && temp->next->num > temp->next->next->num && temp->num > temp->next->next->num)
+		rra_rrb(stack_a, stack_b, 1);
 	return (is_sorted(*stack_a));
 }
