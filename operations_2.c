@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:19:34 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 16:49:49 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:09:41 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ra_rb(t_stack **stack_a, t_stack **stack_b, int mode)
 		stackadd_back(stack_b, temp);
 		ft_printf("rb\n");
 	}
+	update_index(*stack_a);
 	return (0);
 }
 
@@ -57,6 +58,7 @@ int	rr(t_stack **stack_a, t_stack **stack_b)
 	temp->next = NULL;
 	stackadd_back(stack_b, temp);
 	ft_printf("rr\n");
+	update_index(*stack_a);
 	return (0);
 }
 
@@ -97,6 +99,7 @@ int	rra_rrb(t_stack **stack_a, t_stack **stack_b, int mode)
 		temp->next = NULL;
 		ft_printf("rrb\n");
 	}
+	update_index(*stack_a);
 	return (0);
 }
 
@@ -119,6 +122,6 @@ int	rrr(t_stack **stack_a, t_stack **stack_b)
 	temp = stack_last(*stack_b);
 	temp->next = NULL;
 	ft_printf("rrr\n");
+	update_index(*stack_a);
 	return (0);
 }
-
