@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/11 12:03:28 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:25:16 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int		rrr(t_stack **stack_a, t_stack **stack_b);
 // sort_3_5.c
 
 int		sort_three(t_stack **stack_a, t_stack **stack_b);
+
+int		find_min_index(t_stack *stack, int start_index);
 
 int		sort_five(t_stack **stack_a, t_stack **stack_b);
 
