@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:31:47 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/05 15:21:36 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:06:53 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,21 @@ int	sort_three(t_stack **stack_a, t_stack **stack_b)
 		rra_rrb(stack_a, stack_b, 1);
 	return (is_sorted(*stack_a));
 }
+
+// int	sort_five(t_stack **stack_a, t_stack **stack_b)
+// {
+// 	t_stack	*temp;
+
+// 	if (!is_sorted(stack_a))
+// 	{
+// 		pa_pb(stack_a, stack_b, 0);
+// 		pa_pb(stack_a, stack_b, 0);
+// 		sort_three(stack_a, stack_b);
+// 		pa_pb(stack_a, stack_b, 1);
+// 		pa_pb(stack_a, stack_b, 1);
+		
+
+
+
+// 	}
+// }

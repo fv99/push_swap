@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/05 15:12:51 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:03:28 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	stackadd_back(t_stack **stack, t_stack *new);
 
 void	stackadd_front(t_stack **lst, t_stack *new);
 
+void	update_index(t_stack *stack);
+
 // list_utils_2.c
 
 int		stack_size(t_stack *stack);
@@ -74,6 +76,8 @@ int		rrr(t_stack **stack_a, t_stack **stack_b);
 // sort_3_5.c
 
 int		sort_three(t_stack **stack_a, t_stack **stack_b);
+
+int		sort_five(t_stack **stack_a, t_stack **stack_b);
 
 // test_functions.c
 

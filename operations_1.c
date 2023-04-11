@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:33:07 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 17:20:17 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:08:22 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	sa_sb(t_stack **stack, int mode)
 		ft_printf("sa\n");
 	else
 		ft_printf("sb\n");
+	update_index(*stack);
 	return (0);
 }
 
@@ -47,6 +48,7 @@ int	ss(t_stack **stack_a, t_stack **stack_b)
 	temp->next = (*stack_b)->next;
 	(*stack_b)->next = temp;
 	ft_printf("ss\n");
+	update_index(*stack_a);
 	return (0);
 }
 
@@ -64,7 +66,7 @@ int	pa_pb(t_stack **stack_a, t_stack **stack_b, int mode)
 		*stack_b = (*stack_b)->next;
 		temp->next = NULL;
 		stackadd_front(stack_a, temp);
-		return(ft_printf("pa\n"));
+		ft_printf("pa\n");
 	}
 	else
 	{
@@ -72,6 +74,8 @@ int	pa_pb(t_stack **stack_a, t_stack **stack_b, int mode)
 		*stack_a = (*stack_a)->next;
 		temp->next = NULL;
 		stackadd_front(stack_b, temp);
-		return(ft_printf("pb\n"));
+		ft_printf("pb\n");
 	}
+	update_index(*stack_a);
+	return(0);
 }

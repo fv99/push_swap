@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:37:13 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 17:28:32 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:07:19 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,20 @@ void	stackadd_front(t_stack **lst, t_stack *new)
 			new->next = *lst;
 		*lst = new;
 	}
+}
+
+// updates index in our stack
+void	update_index(t_stack *stack)
+{
+    t_stack	*temp;
+    int		index;
+
+    temp = stack;
+    index = 0;
+    while (temp)
+    {
+        temp->index = index;
+        temp = temp->next;
+        index++;
+    }
 }

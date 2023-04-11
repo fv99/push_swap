@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/05 15:13:52 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:07:29 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	initialize_list(t_stack **lst, int argc, char **argv)
 	}
 	if (argc == 2)
 		free_split(args);
+	update_index(*lst);
 }
 
 int	main(int argc, char **argv)
