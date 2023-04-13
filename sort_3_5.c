@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:31:47 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/13 16:00:31 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:15:59 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	sort_five(t_stack **stack_a, t_stack **stack_b)
 		pa_pb(stack_a, stack_b, 0);
 		pa_pb(stack_a, stack_b, 0);
 		sort_three(stack_a, stack_b);
-		while (stack_b)
+		while (*stack_b)
 			pa_pb(stack_a, stack_b, 1);
 		rotate_sort_5(stack_a, stack_b, *stack_a, 0);
 	}

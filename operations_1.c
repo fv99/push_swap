@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:33:07 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/13 16:10:34 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:12:56 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp;
 
-	if (!stack_a || !*stack_a || !(*stack_a)->next \
-		|| !stack_b || !*stack_b || !(*stack_b)->next)
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return(1);
 	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
@@ -58,7 +57,7 @@ int	pa_pb(t_stack **stack_a, t_stack **stack_b, int mode)
 {
 	t_stack	*temp;
 
-	if (!stack_a || !*stack_a || (mode == 1 && (!stack_b || !*stack_b)))
+	if (!stack_a || !*stack_a)
 		return(1);	
 	if (mode == 1)
 	{
