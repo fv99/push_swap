@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/11 14:37:35 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:08:44 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int	main(int argc, char **argv)
 		a = (t_stack **)malloc(sizeof(t_stack));
 		b = (t_stack **)malloc(sizeof(t_stack));
 		initialize_list(a, argc, argv);
-		initialize_list(b, argc, argv);
+		*b = NULL;
 		if (argc == 4)
 			sort_three(a, b);
-		else
+		else if (argc == 6)
 			sort_five(a, b);
 		test_stack_read(a);
 		test_stack_read(b);
