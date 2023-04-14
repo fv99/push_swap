@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:20:37 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 17:35:43 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:59:17 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void	free_stack(t_stack **stack)
 		tmp = next;
 	}
 	*stack = NULL;
-	free(stack);
+	// free(stack);
 }

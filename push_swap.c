@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/14 13:45:06 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:59:24 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,28 +45,37 @@ void	initialize_list(t_stack **lst, int argc, char **argv)
 	update_index(*lst);
 }
 
+int	push_swap(t_stack **stack_a, t_stack **stack_b, int argc)
+{
+
+	if (argc <= 4)
+		sort_three(stack_a, stack_b);
+	else if (argc == 6)
+		sort_five(stack_a, stack_b);
+	// else if (argc > 6)
+	// 	sort_lots(stack_a, stack_b);
+
+	return(0);
+}
+
 int	main(int argc, char **argv)
 {
-	t_stack	**a;
-	t_stack	**b;
+    t_stack *stack_a;
+    t_stack *stack_b;
 
-	if (argc < 2)
-		you_fucked_up("Invalid number of arguments");
-	else
-	{
-		a = (t_stack **)malloc(sizeof(t_stack *));
-		b = (t_stack **)malloc(sizeof(t_stack *));
-		initialize_list(a, argc, argv);
-		*b = NULL;
-		if (argc == 4)
-			sort_three(a, b);
-		else if (argc <= 6 && argc > 4)
-			sort_five(a, b);
-		test_stack_read(a);
-		test_stack_read(b);
-		// test_my_shit(a, b);
-		free_stack(a);
-		free_stack(b);
-	}
-	return (0);
+    if (argc < 2)
+        you_fucked_up("Invalid number of arguments");
+    else
+    {
+		stack_a = NULL;
+		stack_b = NULL;
+        initialize_list(&stack_a, argc, argv);
+        push_swap(&stack_a, &stack_b, argc);
+        test_stack_read(&stack_a);
+        test_stack_read(&stack_b);
+        // test_my_shit(a, b);
+        free_stack(&stack_a);
+        free_stack(&stack_b);
+    }
+    return (0);
 }

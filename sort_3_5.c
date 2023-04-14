@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:31:47 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/14 13:45:18 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:53:29 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	sort_three(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*temp;
 
 	temp = *stack_a;
-	if (stack_size(*stack_a) == 2 && temp->num > temp->next->num)
+	if (stack_size(*stack_a) == 2 && !is_sorted(*stack_a))
 			sa_sb(stack_a, 1);
-	if (temp->num > temp->next->num && temp->next->num < temp->next->next->num && temp->num < temp->next->next->num)
+	else if (temp->num > temp->next->num && temp->next->num < temp->next->next->num && temp->num < temp->next->next->num)
 		sa_sb(stack_a, 1);
 	else if (temp->num > temp->next->num && temp->next->num > temp->next->next->num)
 	{

@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/14 13:46:14 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:49:44 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef	struct s_stack
 int		you_fucked_up(char *msg);
 
 void	initialize_list(t_stack **lst, int argc, char **argv);
+
+int		push_swap(t_stack **stack_a, t_stack **stack_b, int argc);
 
 // list_utils_1.c
 
