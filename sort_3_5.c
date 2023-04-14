@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:31:47 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/13 16:15:59 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:45:18 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	sort_three(t_stack **stack_a, t_stack **stack_b)
 	return (is_sorted(*stack_a));
 }
 
+// rotates depending on position of val to put it at bottom
 int	rotate_sort_5(t_stack **stack_a, t_stack **stack_b, t_stack *val, int sel)
 {
 	int index;
@@ -69,16 +70,47 @@ int	rotate_sort_5(t_stack **stack_a, t_stack **stack_b, t_stack *val, int sel)
 	return (0);
 }
 
+// finds the minimum element in a stack
+t_stack	*find_min(t_stack *stack)
+{
+	t_stack	*min;
+	t_stack	*tmp;
+
+	if (!stack)
+		return (NULL);
+	min = stack;
+	tmp = stack->next;
+	while (tmp)
+	{
+		if (tmp->num < min->num)
+			min = tmp;
+		tmp = tmp->next;
+	}
+	return (min);
+}
+
+/* 
+find the minimum element in stack a
+rotates stack to place min at top, pb
+find second minimum, pb
+sorts the three remaining in sort five
+pushes all into stack a
+ */
 int	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
+	t_stack	*min;
+
 	if (!is_sorted(*stack_a))
 	{
-		pa_pb(stack_a, stack_b, 0);
-		pa_pb(stack_a, stack_b, 0);
-		sort_three(stack_a, stack_b);
-		while (*stack_b)
-			pa_pb(stack_a, stack_b, 1);
-		rotate_sort_5(stack_a, stack_b, *stack_a, 0);
+		min = find_min(*stack_a);
+		rotate_sort_5(stack_a, stack_b, min, 1);
+        pa_pb(stack_a, stack_b, 0);
+        min = find_min(*stack_a);
+        rotate_sort_5(stack_a, stack_b, min, 1);
+        pa_pb(stack_a, stack_b, 0);
+        sort_three(stack_a, stack_b);
+        while (*stack_b)
+            pa_pb(stack_a, stack_b, 1);
 	}
 	return (is_sorted(*stack_a));
 }
