@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:33:07 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/13 16:12:56 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:20:00 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	sa_sb(t_stack **stack, int mode)
 		ft_printf("sa\n");
 	else
 		ft_printf("sb\n");
-	update_index(*stack);
 	return (0);
 }
 
@@ -47,7 +46,6 @@ int	ss(t_stack **stack_a, t_stack **stack_b)
 	temp->next = (*stack_b)->next;
 	(*stack_b)->next = temp;
 	ft_printf("ss\n");
-	update_index(*stack_a);
 	return (0);
 }
 
@@ -75,6 +73,5 @@ int	pa_pb(t_stack **stack_a, t_stack **stack_b, int mode)
 		stackadd_front(stack_b, temp);
 		ft_printf("pb\n");
 	}
-	update_index(*stack_a);
 	return(0);
 }

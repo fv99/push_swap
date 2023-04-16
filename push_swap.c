@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/16 17:38:32 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:20:42 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ int	main(int argc, char **argv)
 		stack_a = NULL;
 		stack_b = NULL;
         initialize_list(&stack_a, argc, argv);
-		test_stack_read(&stack_a);
-        test_stack_read(&stack_b);
+		// test_stack_read(&stack_a);
+        // test_stack_read(&stack_b);
         push_swap(&stack_a, &stack_b, argc);
-        test_stack_read(&stack_a);
-        test_stack_read(&stack_b);
+        // test_stack_read(&stack_a);
+        // test_stack_read(&stack_b);
         // test_my_shit(a, b);
         free_stack(&stack_a);
         free_stack(&stack_b);
