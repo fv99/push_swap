@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/14 13:59:24 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:38:32 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,12 @@ void	initialize_list(t_stack **lst, int argc, char **argv)
 
 int	push_swap(t_stack **stack_a, t_stack **stack_b, int argc)
 {
-
 	if (argc <= 4)
 		sort_three(stack_a, stack_b);
 	else if (argc == 6)
 		sort_five(stack_a, stack_b);
-	// else if (argc > 6)
-	// 	sort_lots(stack_a, stack_b);
-
+	else if (argc == 5 || argc > 6)
+	 	sort_lots(stack_a, stack_b);
 	return(0);
 }
 
@@ -70,6 +68,8 @@ int	main(int argc, char **argv)
 		stack_a = NULL;
 		stack_b = NULL;
         initialize_list(&stack_a, argc, argv);
+		test_stack_read(&stack_a);
+        test_stack_read(&stack_b);
         push_swap(&stack_a, &stack_b, argc);
         test_stack_read(&stack_a);
         test_stack_read(&stack_b);

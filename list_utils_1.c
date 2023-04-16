@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:37:13 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/11 12:07:19 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:38:08 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,23 @@ void	stackadd_front(t_stack **lst, t_stack *new)
 	}
 }
 
-// updates index in our stack
+// updates index according to min value
 void	update_index(t_stack *stack)
 {
     t_stack	*temp;
     int		index;
 
     temp = stack;
-    index = 0;
     while (temp)
     {
-        temp->index = index;
+        temp->index = -1;
         temp = temp->next;
-        index++;
+    }
+    index = 0;
+    temp = get_min(&stack);
+    while (temp)
+    {
+        temp->index = index++;
+        temp = get_min(&stack);
     }
 }

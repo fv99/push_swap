@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:20:37 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/14 13:59:17 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:39:51 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,28 @@ void	free_stack(t_stack **stack)
 	}
 	*stack = NULL;
 	// free(stack);
+}
+
+// gets min value for index
+t_stack	*get_min(t_stack **stack)
+{
+	t_stack	*temp;
+	t_stack	*min_node;
+	int		min;
+
+	if (!(*stack))
+		return (NULL);
+	min = INT_MAX;
+	min_node = NULL;
+	temp = *stack;
+	while (temp)
+	{
+		if (temp->index == -1 && temp->num < min)
+		{
+			min = temp->num;
+			min_node = temp;
+		}
+		temp = temp->next;
+	}
+	return (min_node);
 }

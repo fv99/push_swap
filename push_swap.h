@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/14 13:49:44 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:37:50 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	free_split(char **str);
 
 void	free_stack(t_stack **stack);
 
+t_stack	*get_min(t_stack **stack);
+
 // operations_1.c
 
 int		sa_sb(t_stack **stack, int mode);
@@ -84,6 +86,11 @@ int		rotate_sort_5(t_stack **stack_a, t_stack **stack_b, t_stack *val, int sel);
 t_stack	*find_min(t_stack *stack);
 
 int		sort_five(t_stack **stack_a, t_stack **stack_b);
+
+// sort_lots.c
+
+int		sort_lots(t_stack **stack_a, t_stack **stack_b);
+
 
 // test_functions.c
 

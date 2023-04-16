@@ -6,7 +6,7 @@
 #    By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 15:47:13 by fvonsovs          #+#    #+#              #
-#    Updated: 2023/04/04 17:36:35 by fvonsovs         ###   ########.fr        #
+#    Updated: 2023/04/16 16:37:42 by fvonsovs         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
 NAME		=	push_swap
 SRCS		=	push_swap.c list_utils_1.c list_utils_2.c operations_1.c \
-				operations_2.c sort_3_5.c test_functions.c
+				operations_2.c sort_3_5.c sort_lots.c test_functions.c
 OBJS		=	${SRCS:.c=.o}
 LIBC		=	ar -cvq
 RM			=	rm -f
