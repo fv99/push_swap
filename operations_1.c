@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:33:07 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/16 18:20:00 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:47:23 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	sa_sb(t_stack **stack, int mode)
 	t_stack	*temp;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return(1);
+		return (1);
 	temp = *stack;
 	*stack = (*stack)->next;
 	temp->next = (*stack)->next;
@@ -36,7 +36,7 @@ int	ss(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*temp;
 
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
-		return(1);
+		return (1);
 	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	temp->next = (*stack_a)->next;
@@ -56,7 +56,7 @@ int	pa_pb(t_stack **stack_a, t_stack **stack_b, int mode)
 	t_stack	*temp;
 
 	if (!stack_a || !*stack_a)
-		return(1);	
+		return (1);
 	if (mode == 1)
 	{
 		temp = *stack_b;
@@ -73,5 +73,5 @@ int	pa_pb(t_stack **stack_a, t_stack **stack_b, int mode)
 		stackadd_front(stack_b, temp);
 		ft_printf("pb\n");
 	}
-	return(0);
+	return (0);
 }

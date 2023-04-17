@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:19:34 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/16 18:20:11 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:48:40 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 // mode 0 = shift up all elements of stack b by 1, first becomes last
 int	ra_rb(t_stack **stack_a, t_stack **stack_b, int mode)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	if (!stack_a || !*stack_a ||  !(*stack_a)->next)
-		return(1);
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return (1);
 	if (mode == 1)
 	{
 		temp = *stack_a;
@@ -42,10 +42,10 @@ int	ra_rb(t_stack **stack_a, t_stack **stack_b, int mode)
 // ra and rb at the same time
 int	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
-		return(1);
+		return (1);
 	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	temp->next = NULL;
@@ -72,10 +72,10 @@ t_stack	*find_pre_last(t_stack *stack)
 // mode 0 = shift down all elements of stack b by 1, last becomes first
 int	rra_rrb(t_stack **stack_a, t_stack **stack_b, int mode)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	if (!stack_a || !*stack_a || !(*stack_a)->next )
-		return(1);
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return (1);
 	if (mode == 1)
 	{
 		temp = stack_last(*stack_a);
@@ -100,10 +100,10 @@ int	rra_rrb(t_stack **stack_a, t_stack **stack_b, int mode)
 // rra and rrb at the same time
 int	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!stack_a || !*stack_a)
-		return(1);
+		return (1);
 	temp = stack_last(*stack_a);
 	find_pre_last(*stack_a)->next = NULL;
 	stackadd_front(stack_a, temp);

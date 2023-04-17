@@ -6,9 +6,12 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/17 17:27:01 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:57:23 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "./libft/libft.h"
 # include <unistd.h>
@@ -18,7 +21,7 @@
 # include <stdio.h>
 
 // structs go here
-typedef	struct s_stack
+typedef struct s_stack
 {
 	int				num;
 	int				index;
@@ -91,9 +94,12 @@ int		rrr(t_stack **stack_a, t_stack **stack_b);
 
 // sort_3_5.c
 
+int		check_case(t_stack *stack_a, int case_a, int case_b, int case_c);
+
 int		sort_three(t_stack **stack_a, t_stack **stack_b);
 
-int		rotate_sort_5(t_stack **stack_a, t_stack **stack_b, t_stack *val, int sel);
+int		rotate_sort_5(t_stack **stack_a, \
+		t_stack **stack_b, t_stack *val, int sel);
 
 t_stack	*find_min(t_stack *stack);
 
@@ -111,10 +117,8 @@ int		read_ops(t_stack **stack_a, t_stack **stack_b, char *cmd);
 
 int		check_ops(t_stack **stack_a, t_stack **stack_b);
 
-
-
 // test_functions.c
-
+/* 
 void	test_stack_read(t_stack **a);
 
 int		test_sa_sb(t_stack **stack);
@@ -128,3 +132,6 @@ int		test_rra_rrb(t_stack **stack_a, t_stack **stack_b);
 int		test_rrr(t_stack **stack_a, t_stack **stack_b);
 
 int		test_my_shit(t_stack **stack_a, t_stack **stack_b);
+ */
+
+#endif

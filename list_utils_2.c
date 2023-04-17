@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:20:37 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/16 17:39:51 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:04:50 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ int	is_sorted(t_stack *stack)
 {
 	if (!stack)
 		you_fucked_up("is_sorted failed");
-	while(stack)
+	while (stack)
 	{
 		if (!stack->next)
-			return(1);
+			return (1);
 		if (stack->num > stack->next->num)
-			return(0);
+			return (0);
 		stack = stack->next;
 	}
 	return (1);
@@ -65,7 +65,7 @@ void	free_stack(t_stack **stack)
 	t_stack	*next;
 
 	if (!stack || !*stack)
-		return;
+		return ;
 	tmp = *stack;
 	while (tmp)
 	{
@@ -74,7 +74,6 @@ void	free_stack(t_stack **stack)
 		tmp = next;
 	}
 	*stack = NULL;
-	// free(stack);
 }
 
 // gets min value for index

@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:37:13 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/16 17:38:08 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:05:35 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack	*new_stack(int val)
 	stack->num = val;
 	stack->index = -1;
 	stack->next = NULL;
-	return(stack);
+	return (stack);
 }
 
 // returns last element of stack
@@ -42,7 +42,6 @@ t_stack	*stack_last(t_stack *stack)
 	}
 	return (tmp);
 }
-
 
 void	stackadd_back(t_stack **stack, t_stack *new)
 {
@@ -74,20 +73,20 @@ void	stackadd_front(t_stack **lst, t_stack *new)
 // updates index according to min value
 void	update_index(t_stack *stack)
 {
-    t_stack	*temp;
-    int		index;
+	t_stack	*temp;
+	int		index;
 
-    temp = stack;
-    while (temp)
-    {
-        temp->index = -1;
-        temp = temp->next;
-    }
-    index = 0;
-    temp = get_min(&stack);
-    while (temp)
-    {
-        temp->index = index++;
-        temp = get_min(&stack);
-    }
+	temp = stack;
+	while (temp)
+	{
+		temp->index = -1;
+		temp = temp->next;
+	}
+	index = 0;
+	temp = get_min(&stack);
+	while (temp)
+	{
+		temp->index = index++;
+		temp = get_min(&stack);
+	}
 }

@@ -6,11 +6,24 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:31:47 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/14 13:53:29 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:00:57 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// norminette bs
+int	check_case(t_stack *stack_a, int case_a, int case_b, int case_c)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = stack_a->num;
+	b = stack_a->next->num;
+	c = stack_a->next->next->num;
+	return (case_a == (a > b) && case_b == (b < c) && case_c == (a < c));
+}
 
 /* 
 For 3 numbers
@@ -23,26 +36,23 @@ Case 5:	2 3 1 > rra > 1 2 3
  */
 int	sort_three(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*temp;
-
-	temp = *stack_a;
 	if (stack_size(*stack_a) == 2 && !is_sorted(*stack_a))
-			sa_sb(stack_a, 1);
-	else if (temp->num > temp->next->num && temp->next->num < temp->next->next->num && temp->num < temp->next->next->num)
 		sa_sb(stack_a, 1);
-	else if (temp->num > temp->next->num && temp->next->num > temp->next->next->num)
+	else if (check_case(*stack_a, 1, 1, 1))
+		sa_sb(stack_a, 1);
+	else if (check_case(*stack_a, 1, 0, 0))
 	{
 		sa_sb(stack_a, 1);
 		rra_rrb(stack_a, stack_b, 1);
 	}
-	else if (temp->num > temp->next->num && temp->next->num < temp->next->next->num && temp->num > temp->next->next->num)
+	else if (check_case(*stack_a, 1, 1, 0))
 		ra_rb(stack_a, stack_b, 1);
-	else if (temp->num < temp->next->num && temp->next->num > temp->next->next->num && temp->num < temp->next->next->num)
+	else if (check_case(*stack_a, 0, 0, 1))
 	{
 		sa_sb(stack_a, 1);
 		ra_rb(stack_a, stack_b, 1);
 	}
-	else if (temp->num < temp->next->num && temp->next->num > temp->next->next->num && temp->num > temp->next->next->num)
+	else if (check_case(*stack_a, 0, 0, 0))
 		rra_rrb(stack_a, stack_b, 1);
 	return (is_sorted(*stack_a));
 }
@@ -50,7 +60,7 @@ int	sort_three(t_stack **stack_a, t_stack **stack_b)
 // rotates depending on position of val to put it at bottom
 int	rotate_sort_5(t_stack **stack_a, t_stack **stack_b, t_stack *val, int sel)
 {
-	int index;
+	int	index;
 
 	if (!stack_a || !*stack_a || !val)
 		return (you_fucked_up("error in rotate_sort_5"));
@@ -60,7 +70,7 @@ int	rotate_sort_5(t_stack **stack_a, t_stack **stack_b, t_stack *val, int sel)
 	if (index < (stack_size(*stack_a) - index))
 	{
 		while ((*stack_a)->num != val->num)
-            ra_rb(stack_a, stack_b, sel);
+			ra_rb(stack_a, stack_b, sel);
 	}
 	else
 	{
@@ -104,13 +114,13 @@ int	sort_five(t_stack **stack_a, t_stack **stack_b)
 	{
 		min = find_min(*stack_a);
 		rotate_sort_5(stack_a, stack_b, min, 1);
-        pa_pb(stack_a, stack_b, 0);
-        min = find_min(*stack_a);
-        rotate_sort_5(stack_a, stack_b, min, 1);
-        pa_pb(stack_a, stack_b, 0);
-        sort_three(stack_a, stack_b);
-        while (*stack_b)
-            pa_pb(stack_a, stack_b, 1);
+		pa_pb(stack_a, stack_b, 0);
+		min = find_min(*stack_a);
+		rotate_sort_5(stack_a, stack_b, min, 1);
+		pa_pb(stack_a, stack_b, 0);
+		sort_three(stack_a, stack_b);
+		while (*stack_b)
+			pa_pb(stack_a, stack_b, 1);
 	}
 	return (is_sorted(*stack_a));
 }

@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:20:43 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/04 16:51:43 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:02:29 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,14 +145,14 @@ int test_rrr(t_stack **stack_a, t_stack **stack_b)
 
 int test_my_shit(t_stack **a, t_stack **b)
 {
-		test_stack_read(a);
-		test_sa_sb(a);
-		test_pa_pb(a, b);
-		test_ss(a, b);
-        test_ra_rb(a, b);
-		test_rr(a, b);
-		test_rra_rrb(a, b);
-		test_rrr(a, b);
-		test_stack_read(b);
-        return (0);
+    test_stack_read(a);
+    test_sa_sb(a);
+    test_pa_pb(a, b);
+    test_ss(a, b);
+    test_ra_rb(a, b);
+    test_rr(a, b);
+    test_rra_rrb(a, b);
+    test_rrr(a, b);
+    test_stack_read(b);
+    return (0);
 }

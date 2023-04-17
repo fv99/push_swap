@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/17 17:34:29 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:03:34 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ int	push_swap(t_stack **stack_a, t_stack **stack_b, int argc)
 	else if (argc == 6)
 		sort_five(stack_a, stack_b);
 	else if (argc == 5 || argc > 6)
-	 	sort_lots(stack_a, stack_b);
-	return(0);
+		sort_lots(stack_a, stack_b);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:28:48 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/17 17:31:03 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:49:53 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,31 +55,30 @@ int	check_ops(t_stack **stack_a, t_stack **stack_b)
 	if (is_sorted(*stack_a))
 	{
 		ft_printf("OK\n");
-		return(1);
+		return (1);
 	}
 	else
 		ft_printf("KO\n");
 	free(buf);
-	return(0);
+	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-    t_stack *stack_a;
-    t_stack *stack_b;
-	
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-    if (argc < 2)
-        you_fucked_up("Invalid number of arguments");
-    else
-    {
+	if (argc < 2)
+		you_fucked_up("Invalid number of arguments");
+	else
+	{
 		check_input(argv);
 		stack_a = NULL;
 		stack_b = NULL;
-        initialize_list(&stack_a, argc, argv);
+		initialize_list(&stack_a, argc, argv);
 		check_ops(&stack_a, &stack_b);
-        free_stack(&stack_a);
-        free_stack(&stack_b);
-    }
-    return (0);
+		free_stack(&stack_a);
+		free_stack(&stack_b);
+	}
+	return (0);
 }

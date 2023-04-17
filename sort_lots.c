@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:28:35 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/16 17:58:14 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:03:17 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // gets max bits to represent an index 
 int	get_index_bits(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 	int		max;
 	int		max_bits;
 
@@ -30,7 +30,7 @@ int	get_index_bits(t_stack **stack)
 	}
 	while ((max >> max_bits) != 0)
 		max_bits++;
-	return(max_bits);
+	return (max_bits);
 }
 
 /*
@@ -69,11 +69,11 @@ int	get_index_bits(t_stack **stack)
 int	sort_lots(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp;
-	int 	i;
+	int		i;
 	int		j;
 	int		size;
 	int		max_bits;
-	
+
 	temp = *stack_a;
 	size = stack_size(*stack_a);
 	max_bits = get_index_bits(stack_a);
@@ -92,5 +92,5 @@ int	sort_lots(t_stack **stack_a, t_stack **stack_b)
 		while (stack_size(*stack_b) != 0)
 			pa_pb(stack_a, stack_b, 1);
 	}
-	return(is_sorted(*stack_a));
+	return (is_sorted(*stack_a));
 }

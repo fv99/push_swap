@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:24:13 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/17 14:44:22 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:01:31 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ int	check_dupes(char **argv)
 		while (argv[j])
 		{
 			if (j != i && !string_compare(argv[i], argv[j]))
-				return(1);
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
 int	is_zero(char *argv)
@@ -105,5 +105,5 @@ int	check_input(char **argv)
 		you_fucked_up("Multiple zeros in input");
 	if (check_dupes(argv))
 		you_fucked_up("Duplicates in input");
-	return(1);
+	return (1);
 }
