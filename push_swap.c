@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/16 18:20:42 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:43:30 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
         you_fucked_up("Invalid number of arguments");
     else
     {
+		check_input(argv);
 		stack_a = NULL;
 		stack_b = NULL;
         initialize_list(&stack_a, argc, argv);

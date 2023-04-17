@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/16 17:37:50 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:42:36 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ int		you_fucked_up(char *msg);
 void	initialize_list(t_stack **lst, int argc, char **argv);
 
 int		push_swap(t_stack **stack_a, t_stack **stack_b, int argc);
+
+// input_check.c
+
+int		is_number(char *argv);
+
+int		string_compare(const char *s1, const char *s2);
+
+int		check_dupes(char **argv);
+
+int		is_zero(char *argv);
+
+int		check_input(char **argv);
 
 // list_utils_1.c
 
