@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:48:10 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/17 14:42:36 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:27:01 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,16 @@ int		sort_five(t_stack **stack_a, t_stack **stack_b);
 
 // sort_lots.c
 
+int		get_index_bits(t_stack **stack);
+
 int		sort_lots(t_stack **stack_a, t_stack **stack_b);
+
+// bonus_checker.c
+
+int		read_ops(t_stack **stack_a, t_stack **stack_b, char *cmd);
+
+int		check_ops(t_stack **stack_a, t_stack **stack_b);
+
 
 
 // test_functions.c

@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/17 14:43:30 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:34:29 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,29 +54,4 @@ int	push_swap(t_stack **stack_a, t_stack **stack_b, int argc)
 	else if (argc == 5 || argc > 6)
 	 	sort_lots(stack_a, stack_b);
 	return(0);
-}
-
-int	main(int argc, char **argv)
-{
-    t_stack *stack_a;
-    t_stack *stack_b;
-
-    if (argc < 2)
-        you_fucked_up("Invalid number of arguments");
-    else
-    {
-		check_input(argv);
-		stack_a = NULL;
-		stack_b = NULL;
-        initialize_list(&stack_a, argc, argv);
-		// test_stack_read(&stack_a);
-        // test_stack_read(&stack_b);
-        push_swap(&stack_a, &stack_b, argc);
-        // test_stack_read(&stack_a);
-        // test_stack_read(&stack_b);
-        // test_my_shit(a, b);
-        free_stack(&stack_a);
-        free_stack(&stack_b);
-    }
-    return (0);
 }
