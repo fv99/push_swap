@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:34:23 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/19 16:39:27 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:55:00 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 		check_input(argv);
 		stack_a = NULL;
 		stack_b = NULL;
-		initialize_list(&stack_a, argc, argv);
+		initialize_list(&stack_a, argv);
 		if (!is_sorted(stack_a))
 			push_swap(&stack_a, &stack_b, argc);
 		free_stack(&stack_a);

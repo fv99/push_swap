@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:47:57 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/17 18:03:34 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:52:24 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,54 @@ int	you_fucked_up(char *msg)
 	exit(1);
 }
 
-void	initialize_list(t_stack **lst, int argc, char **argv)
+// need long to check for MAX/MIN_INT
+long	ft_atol(const char *s)
+{
+	int		i;
+	long	res;
+	long	coeff;
+
+	i = 0;
+	res = 0;
+	coeff = 1;
+	while (s[i] && (s[i] == ' '))
+		i++;
+	if (!s[i])
+		return (0);
+	if (s[i] == '+')
+		i++;
+	else if (s[i] == '-')
+	{
+		coeff = -1;
+		i++;
+	}
+	while (s[i] && ft_isdigit(s[i]))
+	{
+		res = res * 10 + s[i] - '0';
+		i++;
+	}
+	return (res * coeff);
+}
+
+void	initialize_list(t_stack **lst, char **argv)
 {
 	t_stack	*tmp;
 	char	**args;
 	int		i;
+	long	num;
 
 	*lst = NULL;
-	i = 0;
-	if (argc == 2)
-		args = ft_split(argv[1], ' ');
-	else
-	{
-		i = 1;
-		args = argv;
-	}
+	i = 1;
+	args = argv;
 	while (args[i])
 	{
-		tmp = new_stack(ft_atoi(args[i]));
+		num = ft_atol(args[i]);
+		if (num > INT_MAX || num < INT_MIN)
+			you_fucked_up("Integer out of range");
+		tmp = new_stack((int)num);
 		stackadd_back(lst, tmp);
 		i++;
 	}
-	if (argc == 2)
-		free_split(args);
 	update_index(*lst);
 }
 

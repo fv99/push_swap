@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:28:48 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/17 17:49:53 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:00:40 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 
 	if (argc < 2)
-		you_fucked_up("Invalid number of arguments");
+		return (0);
 	else
 	{
 		check_input(argv);
 		stack_a = NULL;
 		stack_b = NULL;
-		initialize_list(&stack_a, argc, argv);
+		initialize_list(&stack_a, argv);
 		check_ops(&stack_a, &stack_b);
 		free_stack(&stack_a);
 		free_stack(&stack_b);
