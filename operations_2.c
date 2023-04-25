@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:19:34 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/25 11:13:31 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:14:56 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ int	rr(t_stack **stack_a, t_stack **stack_b)
 t_stack	*find_pre_last(t_stack *stack)
 {
 	if (!stack || !stack->next)
-		you_fucked_up("Invalid operation");
+	{
+		ft_printf("KO\n");
+		exit(0);
+	}
 	while (stack->next->next)
 		stack = stack->next;
 	return (stack);
