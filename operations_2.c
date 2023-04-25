@@ -6,7 +6,7 @@
 /*   By: fvonsovs <fvonsovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:19:34 by fvonsovs          #+#    #+#             */
-/*   Updated: 2023/04/25 11:14:56 by fvonsovs         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:21:13 by fvonsovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp;
 
-	if (!stack_a || !*stack_a || !stack_b || !*stack_b )
+	if (!stack_a || !*stack_a || !stack_b || !*stack_b)
 		return (1);
 	temp = stack_last(*stack_a);
 	find_pre_last(*stack_a)->next = NULL;
